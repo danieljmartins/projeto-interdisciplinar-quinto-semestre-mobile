@@ -168,7 +168,7 @@ class MainApp extends StatelessWidget {
   }
 
   // Função para construir a lista com os marcadores (círculos)
-  Widget _buildListItem(String text) {
+  Widget _buildListItem(String text) { 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
