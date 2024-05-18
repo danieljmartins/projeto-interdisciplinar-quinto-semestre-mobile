@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'pesquisa.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MaterialApp(
+    home: MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {
@@ -28,6 +31,7 @@ class MainApp extends StatelessWidget {
                 },
               ),
             ),
+
             // Quadrado
             Positioned(
               top: 100,
@@ -40,6 +44,7 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
+
             // Texto do quadrado "The Riddler"
             const Positioned(
               top: 102,
@@ -54,6 +59,7 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
+
             // Imagem do Charada
             Positioned(
               width: 510.0,
@@ -64,6 +70,7 @@ class MainApp extends StatelessWidget {
                 gaplessPlayback: true,
               ),
             ),
+
             // Texto "Bem Vindo"
             const Positioned(
               width: 304.0,
@@ -80,6 +87,7 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
+
             // Texto "VERIFACT"
             const Positioned(
               width: 304.0,
@@ -96,6 +104,7 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
+
             // Lista
             Positioned(
               width: 345.0,
@@ -120,7 +129,7 @@ class MainApp extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0),
                     child: _buildListItem(
-                      '"Consulte qualquer informação e verifique sua veracidade."',
+                      'Consulte qualquer informação e verifique sua veracidade.',
                     ),
                   ),
                 ],
@@ -133,9 +142,10 @@ class MainApp extends StatelessWidget {
               height: 55.0,
               top: 710.0,
               child: ElevatedButton(
-                onPressed: () {
-                  // Vai chamar a nova tela aqui
-                },
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Pesquisa()),
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF3B1C32),
                   shape: RoundedRectangleBorder(
@@ -157,7 +167,7 @@ class MainApp extends StatelessWidget {
     );
   }
 
-  // Função para construir cada item da lista com bolinha
+  // Função para construir a lista com os marcadores (círculos)
   Widget _buildListItem(String text) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
