@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'pesquisa.dart';
-=======
-import 'Login.dart'; 
->>>>>>> ed4d54087f5ad145e4e8dc297f244e59784da1b3
 
 void main() {
   runApp(const MaterialApp(
@@ -12,34 +8,33 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key});
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color(0xFFCA054D),
-        body: Builder(
-          builder: (context) => Stack(
+        body: Stack(
           alignment: Alignment.center,
           children: [
-              // Cabeçalho com botão de menu
+            // Cabeçalho
             Positioned(
-              top: 45.0,
-                left: 20.0,
+              top: 37.0,
+              left: 320.0,
               child: IconButton(
                 icon: const Icon(Icons.menu),
                 iconSize: 35.0,
                 color: Colors.white,
                 onPressed: () {
-                    Scaffold.of(context)?.openDrawer(); // Abre o drawer menu
+                  // não faz nada, botão estático
                 },
               ),
             ),
 
             // Quadrado
             Positioned(
-              top: 115,
+              top: 100,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(36),
                 child: Container(
@@ -52,7 +47,7 @@ class MainApp extends StatelessWidget {
 
             // Texto do quadrado "The Riddler"
             const Positioned(
-              top: 114,
+              top: 102,
               left: 67,
               child: Text(
                 'The Riddler',
@@ -68,7 +63,7 @@ class MainApp extends StatelessWidget {
             // Imagem do Charada
             Positioned(
               width: 510.0,
-              top: 145.0,
+              top: 130.0,
               left: -55.0,
               child: Image.asset(
                 'lib/assets/imagens/charada.png',
@@ -80,7 +75,7 @@ class MainApp extends StatelessWidget {
             const Positioned(
               width: 304.0,
               height: 28.0,
-              top: 479.0,
+              top: 460.0,
               child: Text(
                 'Bem Vindo',
                 textAlign: TextAlign.center,
@@ -97,7 +92,7 @@ class MainApp extends StatelessWidget {
             const Positioned(
               width: 304.0,
               height: 44.0,
-              top: 506.0,
+              top: 489.0,
               child: Text(
                 'VERIFACT',
                 textAlign: TextAlign.center,
@@ -109,19 +104,14 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
-<<<<<<< HEAD
 
             // Lista
-=======
-            // Lista de texto com bolinhas
->>>>>>> ed4d54087f5ad145e4e8dc297f244e59784da1b3
             Positioned(
-              width: 304.0,
-              top: 560.0, // Posição vertical abaixo do texto "VERIFACT"
+              width: 345.0,
+              top: 545.0,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-<<<<<<< HEAD
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0),
                     child: _buildListItem(
@@ -171,53 +161,8 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
-=======
-                  _buildListItem(
-                      'Veifact é um aplicativo que visa combater as fake news'),
-                  _buildListItem(
-                      'Através do uso de inteligência artificial conseguimos detectar padrões de informações e notícias falsas'),
-                  _buildListItem(
-                      'Você pode consultar o que quiser, e se informar se trata-se de um fato ou não'),
-                ],
-              ),
-            ),
->>>>>>> ed4d54087f5ad145e4e8dc297f244e59784da1b3
           ],
         ),
-        ),
-drawer: Builder(
-  builder: (BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: const Color(0xFFCA054D),
-            ),
-            child: Text(
-              'Opções',
-              style: TextStyle(
-                color: Color.fromARGB(192, 255, 255, 255),
-                fontSize: 24,
-              ),
-            ),
-          ),
-          ListTile(
-            title: Text('Login'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LoginScreen()),
-              );
-            },
-          ),
-        ],
-      ),
-    );
-  },
-),
-
       ),
     );
   }
@@ -228,13 +173,13 @@ drawer: Builder(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: 8,
-          height: 8,
+          width: 7,
+          height: 7,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.white,
           ),
-          margin: const EdgeInsets.only(top: 8, right: 8),
+          margin: const EdgeInsets.only(top: 8, right: 8, left: 8),
         ),
         Expanded(
           child: Text(
@@ -242,7 +187,7 @@ drawer: Builder(
             textAlign: TextAlign.justify,
             style: const TextStyle(
               fontFamily: 'Roboto',
-              fontSize: 12.0,
+              fontSize: 13.0,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),
