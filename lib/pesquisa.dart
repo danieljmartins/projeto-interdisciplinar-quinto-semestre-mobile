@@ -118,6 +118,7 @@ class Pesquisa extends StatelessWidget {
               'Verdadeira',
               style: TextStyle(
                 color: Color.fromARGB(255, 0, 255, 8),
+                //color: Color.fromARGB(255, 117, 8, 1),
                 fontSize: 40.0,
                 fontWeight: FontWeight.bold,
               ),
