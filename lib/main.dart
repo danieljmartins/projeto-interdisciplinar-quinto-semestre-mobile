@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
           children: [
             // Cabeçalho
             Positioned(
-              top: 37.0,
+              top: 29.0,
               left: 320.0,
               child: IconButton(
                 icon: const Icon(Icons.menu),
@@ -34,7 +34,7 @@ class MainApp extends StatelessWidget {
 
             // Quadrado
             Positioned(
-              top: 100,
+              top: 82,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(36),
                 child: Container(
@@ -47,7 +47,7 @@ class MainApp extends StatelessWidget {
 
             // Texto do quadrado "The Riddler"
             const Positioned(
-              top: 102,
+              top: 82,
               left: 67,
               child: Text(
                 'The Riddler',
@@ -63,7 +63,7 @@ class MainApp extends StatelessWidget {
             // Imagem do Charada
             Positioned(
               width: 510.0,
-              top: 130.0,
+              top: 112.0,
               left: -55.0,
               child: Image.asset(
                 'lib/assets/imagens/charada.png',
@@ -75,7 +75,7 @@ class MainApp extends StatelessWidget {
             const Positioned(
               width: 304.0,
               height: 28.0,
-              top: 460.0,
+              top: 443.0,
               child: Text(
                 'Bem Vindo',
                 textAlign: TextAlign.center,
@@ -92,7 +92,7 @@ class MainApp extends StatelessWidget {
             const Positioned(
               width: 304.0,
               height: 44.0,
-              top: 489.0,
+              top: 472.0,
               child: Text(
                 'VERIFACT',
                 textAlign: TextAlign.center,
@@ -107,8 +107,8 @@ class MainApp extends StatelessWidget {
 
             // Lista
             Positioned(
-              width: 345.0,
-              top: 545.0,
+              width: 360.0,
+              top: 530.0,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -118,14 +118,14 @@ class MainApp extends StatelessWidget {
                       'Verifact é um aplicativo que atua no combate às Fake News',
                     ),
                   ),
-                  const SizedBox(height: 9),
+                  const SizedBox(height: 12),
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0),
                     child: _buildListItem(
                       'Através do uso de inteligência artificial, conseguimos detectar padrões de informações e notícias falsas',
                     ),
                   ),
-                  const SizedBox(height: 9),
+                  const SizedBox(height: 12),
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0),
                     child: _buildListItem(
@@ -140,7 +140,7 @@ class MainApp extends StatelessWidget {
             Positioned(
               width: 290.0,
               height: 55.0,
-              top: 710.0,
+              top: 703.0,
               child: ElevatedButton(
                 onPressed: () => Navigator.push(
                   context,
@@ -168,7 +168,7 @@ class MainApp extends StatelessWidget {
   }
 
   // Função para construir a lista com os marcadores (círculos)
-  Widget _buildListItem(String text) { 
+  Widget _buildListItem(String text) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

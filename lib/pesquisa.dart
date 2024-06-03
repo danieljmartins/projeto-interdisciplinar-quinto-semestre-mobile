@@ -112,6 +112,17 @@ class Pesquisa extends StatelessWidget {
               ),
             ),
           ),
+          const Positioned(
+            top: 655.0,
+            child: Text(
+              'Verdadeira',
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 255, 8),
+                fontSize: 40.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
       ),
     );
