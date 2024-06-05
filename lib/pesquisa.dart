@@ -115,10 +115,10 @@ class Pesquisa extends StatelessWidget {
           const Positioned(
             top: 655.0,
             child: Text(
-              'Verdadeira',
+              'Falsa',
               style: TextStyle(
-                color: Color.fromARGB(255, 0, 255, 8),
-                //color: Color.fromARGB(255, 117, 8, 1),
+                //color: Color.fromARGB(255, 0, 255, 8),
+                color: Color.fromARGB(255, 117, 8, 1),
                 fontSize: 40.0,
                 fontWeight: FontWeight.bold,
               ),

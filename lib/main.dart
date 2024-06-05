@@ -40,7 +40,7 @@ class MainApp extends StatelessWidget {
                 child: Container(
                   width: 304.0,
                   height: 354.0,
-                  color: const Color(0xFF3B1C32),
+                  color: Color.fromRGBO(59, 28, 50, 1),
                 ),
               ),
             ),
