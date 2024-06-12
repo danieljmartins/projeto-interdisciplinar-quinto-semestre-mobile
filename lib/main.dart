@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pesquisa.dart';
+import 'login.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -40,7 +40,7 @@ class MainApp extends StatelessWidget {
                 child: Container(
                   width: 304.0,
                   height: 354.0,
-                  color: Color.fromRGBO(59, 28, 50, 1),
+                  color: const Color.fromRGBO(59, 28, 50, 1),
                 ),
               ),
             ),
@@ -144,7 +144,8 @@ class MainApp extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Pesquisa()),
+                  //MaterialPageRoute(builder: (context) => const Pesquisa()),
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF3B1C32),

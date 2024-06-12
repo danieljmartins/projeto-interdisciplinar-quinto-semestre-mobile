@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:verifact/pesquisa.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -6,7 +7,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: const Color(0xFFCA054D),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -16,22 +17,53 @@ class LoginScreen extends StatelessWidget {
               const TextField(
                 decoration: InputDecoration(
                   labelText: 'Nome de Usuário',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                 ),
+                style: TextStyle(color: Colors.white), // Cor do texto digitado
+                cursorColor: Colors.white, // Cor do cursor
               ),
               const SizedBox(height: 20.0),
               const TextField(
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Senha',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                 ),
+                style: TextStyle(color: Colors.white), // Cor do texto digitado
+                cursorColor: Colors.white, // Cor do cursor
               ),
               const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  // Aqui você pode adicionar a lógica para verificar as credenciais
-                  // e navegar para a próxima tela se forem válidas
-                },
-                child: const Text('Entrar'),
+              SizedBox(
+                width: double.infinity, // Largura total
+                height: 50.0, // Altura do botão
+                child: ElevatedButton(
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Pesquisa()),
+                  ),
+                  child: const Text(
+                    'Entrar',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                ),
               ),
             ],
           ),
