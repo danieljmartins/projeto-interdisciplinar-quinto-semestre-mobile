@@ -1,10 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:logging/logging.dart';
 
 class Pesquisa extends StatelessWidget {
   const Pesquisa({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController controller = TextEditingController();
+    final Logger logger = Logger('PesquisaLogger');
+
+    Future<void> inserirResultado(String result) async {
+      final response = await http.post(
+        Uri.parse(
+            'postgresql://postgres:dfXFikymJcYDSjzLfAAPvJIQeOQKvCjD@monorail.proxy.rlwy.net:33482/railway/resultados'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'result': result}),
+      );
+
+      if (response.statusCode == 201) {
+        logger.info('Resultado inserido com sucesso');
+      } else {
+        logger.warning('Falha ao inserir resultado');
+      }
+    }
+
+    Future<void> buscarResultado() async {
+      final response = await http.get(
+        Uri.parse(
+            'postgresql://postgres:dfXFikymJcYDSjzLfAAPvJIQeOQKvCjD@monorail.proxy.rlwy.net:33482/railway/resultados'),
+      );
+
+      if (response.statusCode == 200) {
+        logger.info('Resultado: ${response.body}');
+      } else {
+        logger.warning('Falha ao buscar resultados');
+      }
+    }
+
     return Scaffold(
       backgroundColor: const Color(0xFFCA054D),
       body: Stack(
@@ -46,8 +80,9 @@ class Pesquisa extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                  child: const TextField(
-                    decoration: InputDecoration(
+                  child: TextField(
+                    controller: controller,
+                    decoration: const InputDecoration(
                       hintText: 'Digite aqui',
                       hintStyle: TextStyle(color: Colors.grey),
                       filled: true,
@@ -63,16 +98,15 @@ class Pesquisa extends StatelessWidget {
             ),
           ),
 
-          // Botão
+          // Botão Verifact
           Positioned(
             width: 290.0,
             height: 55.0,
             top: 480.0,
             child: ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Pesquisa()),
-              ),
+              onPressed: () {
+                inserirResultado(controller.text);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF3B1C32),
                 shape: RoundedRectangleBorder(
@@ -89,9 +123,34 @@ class Pesquisa extends StatelessWidget {
             ),
           ),
 
+          // Botão Pegar
+          Positioned(
+            width: 290.0,
+            height: 55.0,
+            top: 545.0,
+            child: ElevatedButton(
+              onPressed: () {
+                buscarResultado();
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF3B1C32),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+              ),
+              child: const Text(
+                'Pegar',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+
           // Texto abaixo do botão
           const Positioned(
-            top: 550.0,
+            top: 600.0,
             child: Text(
               'RESULTADO',
               style: TextStyle(
@@ -102,7 +161,7 @@ class Pesquisa extends StatelessWidget {
             ),
           ),
           const Positioned(
-            top: 603.0,
+            top: 653.0,
             child: Text(
               'A probabilidade é de que a notícia seja:',
               style: TextStyle(
@@ -113,11 +172,10 @@ class Pesquisa extends StatelessWidget {
             ),
           ),
           const Positioned(
-            top: 655.0,
+            top: 705.0,
             child: Text(
               'Falsa',
               style: TextStyle(
-                //color: Color.fromARGB(255, 0, 255, 8),
                 color: Color.fromARGB(255, 117, 8, 1),
                 fontSize: 40.0,
                 fontWeight: FontWeight.bold,
