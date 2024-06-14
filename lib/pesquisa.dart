@@ -200,16 +200,17 @@ Future<void> buscarResultado(BuildContext context) async {
             ),
           ),
           Positioned(
-            top: 200.0, // Ajustar conforme necessário para evitar sobreposições
-            child: Text(
-              resultado.isNotEmpty ? resultado : 'Nenhum resultado encontrado.',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 19.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+  top: 650.0, // Ajuste conforme necessário para evitar sobreposições
+  child: Text(
+    resultado.isNotEmpty ? resultado : 'Nenhum resultado encontrado.',
+    style: const TextStyle(
+      color: Colors.white,
+      fontSize: 19.0,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+),
+
         ],
       ),
     );
